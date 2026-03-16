@@ -721,13 +721,9 @@ def load_globals(hdf5_filename):
                 raise LabscriptError('Error whilst parsing globals from %s. \'%s\''%(hdf5_filename,name) +
                                      ' is a reserved Python keyword.' +
                                      ' Please choose a different variable name.')
-            try:
-                assert '.' not in name
-                exec(name + ' = 0')
-                exec('del ' + name )
-            except:
-                raise LabscriptError('ERROR whilst parsing globals from %s. \'%s\''%(hdf5_filename,name) +
-                                     'is not a valid Python variable name.' +
+            if not name.isidentifier():
+                raise LabscriptError('Error whilst parsing globals from %s. \'%s\''%(hdf5_filename,name) +
+                                     ' is not a valid Python variable name.' +
                                      ' Please choose a different variable name.')
 
             # Workaround for the fact that numpy.bool_ objects dont 
