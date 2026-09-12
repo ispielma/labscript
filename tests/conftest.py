@@ -24,7 +24,7 @@ point.
 
 `setdefault` leaves an explicit setting alone, and an explicit setting now means
 what it looks like: `LABSCRIPT_NO_ERROR_DIALOG=0` keeps the dialog on, as do
-`false`, `no`, `off` and the empty string. That was not true before `8719676` --
+`false`, `no`, `off` and the empty string. That was not true before `ae73495` --
 the variable was read for bare truthiness, so `=0` suppressed the dialog exactly
 as `=1` did.
 """
